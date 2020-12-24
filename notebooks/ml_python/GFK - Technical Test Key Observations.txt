@@ -1,0 +1,57 @@
+
+- 3,700 observations in training, 200 in validation
+- Comma decimals were converted to point floats in ['v2', 'v3', 'v5', 'v6', 'v7', 'v15']
+
+- ['v1', 'v2', 'v4', 'v13', 'v15', 'v16'] contain null values
+- ['v16'] contains significant null values of 58%
+
+- There is a class imbalance in the training dataset (93% "yes.")
+
+- ['v3'] contains a tail and some outliers
+- ['v4'] contains 'l' in the training but not the validation
+- ['v7'] contains a tail and some outliers
+- ['v12'] in the validation contains low volumes of 'o' and 'p'
+- ['v14'] contains a long tail/outliers and some very high values
+
+- ['v17'] is 100% correlated with ['classLabel'] in training
+- ['v13'] and ['v15'] are 100% correlated in training and validation
+- ['v2'] and ['v7'] are reasonably strongly correlated c. 50%
+
+- ['v1'] categorical missing values rows removed due to low volumes
+- ['v2'] continuous missing values filled with the median
+- ['v4'] categorical missing values rows removed due to low volumes
+- ['v13'] continuous missing values filled with the median
+- ['v16'] all non-missing boolean entries (42% of all entries) are equal to ['v9']
+
+- 'l' rows removed from ['v4'] in training and validation
+- 'p' and 'o' rows removed from ['v12'] in training and validation
+
+- New training data with no missing values contains 3,564 observations
+- New validation data with no missing values contains 194 observations
+
+- ['classLabel'] converted from string to binary 
+- Categorical variables converted to binary dummies to enable them to be ingested by machine learning model
+
+- ['v6'] and ['v8_t'] are the features most strongly correlated with the target ['classLabel']
+- ['v10'] dropped from both datasets as it looks to be a duplicate of ['v9'] but with partially incorrect data
+- ['v15'] dropped from both datasets due to 100% correlation with ['v13']
+- ['v16'] dropped from both datasets as it looks to be a duplicate of ['v9'] but with missing data
+- ['v17'] dropped from both datasets due to 100% correlation with ['classLabel'] in training
+- ['v14'] converted to log due to long tail/outliers and some very high values
+
+- All data normalised between 0 and 1
+- SMOTE oversampling used on training['classLabel'] to correct class imbalance issue. Oversampling of "no." favoured due to lowish sample volumes
+- New training data with oversampling now contains 6,592 observations with a 50-50 ['classLabel'] split
+
+- ['v9_t'] & ['v11_t'] removed due to high p values within logit model
+- Logistic Regression: 77% Accuracy, 79% AUC
+- SVM: 83% Accuracy
+- Random Forest: 82% Accuracy
+
+- Random Forest was used to sense check check feature importance: ['v6'] and ['v8_t] come out top which aligns with correlations produced earlier
+
+- NEXT STEPS:
+
+- k-fold cross validation could be used on the training set to give multiple validation scores to test stability of models 
+- Hyperparameters for the models can be tuned using random search & grid search to further ensure model stability
+

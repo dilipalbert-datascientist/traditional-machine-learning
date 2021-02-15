@@ -1,0 +1,40 @@
+
+1. Navigate to project directory 
+
+cd walnut_entry_point/
+
+2. Create virtual environment folder within project directory
+
+python3 -m venv *NAME_OF_ENV/
+
+3. Activate newly created virtual environment
+
+source *NAME_OF_ENV/bin/activate
+
+4. Install ipykernel which provides the IPython kernel for Jupyter
+
+pip install ipykernel
+
+5. Add kernel for virtual environment to Jupyter so it is available in Launcher 
+
+python -m ipykernel install --user --name=*NAME_OF_ENV
+
+6. Check kernel has been created in Jupyter Lab Launcher
+
+jupyter kernelspec list
+
+7. Check existing list of packages in virtual environment
+
+pip list
+
+8. Install all dependencies for project
+
+eg. pip install pandas
+
+9. List installed third party packages along with their version numbers
+
+pip freeze
+
+10. Write the output to a file, which we’ll call requirements.txt
+
+pip freeze > requirements.txt

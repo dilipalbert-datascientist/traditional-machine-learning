@@ -28,8 +28,8 @@ def boxplot_numeric_features(X,
 def IQR_Outliers(X):
     
     num_features = X.select_dtypes(include=['int64', 'float64']) \
-                .columns \
-                .tolist()
+                    .columns \
+                    .tolist()
 
     print('# of numeric features: ', len(num_features))
     print('Numeric Features: ', num_features)

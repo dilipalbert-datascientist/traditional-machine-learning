@@ -1,0 +1,16 @@
+1. Ensure that the following packages are installed on your machine:
+
+numpy
+random
+matplotlib.pyplot
+seaborn
+scipy.stats
+scipy.stats
+scipy.stats
+
+2. Through the command line, pip install the package I have creating by running the below:
+
+pip install -i https://test.pypi.org/simple/ dilip-albert-package
+
+3. The 'Access_Package.ipynb' file included as a separate attachment contains script enabling you to call the function and class modules within the package.
+
